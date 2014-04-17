@@ -1,0 +1,45 @@
+<h1>Listing tasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Reminder</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.description %></td>
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Date/Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @task.reminders.each do |reminder| %>
+              <tr>
+                <td><%= reminder.type %></td>
+                <td><%= reminder.time %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_task_path %>

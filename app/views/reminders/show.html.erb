@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @reminder.task_id %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @reminder.type %>
+</p>
+
+<p>
+  <strong>Repeat:</strong>
+  <%= @reminder.repeat %>
+</p>
+
+<%= link_to 'Edit', edit_reminder_path(@reminder) %> |
+<%= link_to 'Back', reminders_path %>
